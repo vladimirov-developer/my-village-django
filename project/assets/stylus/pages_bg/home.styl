@@ -1,0 +1,49 @@
+.page_home
+    background #6fb94a url("/static/img/bgs/home.jpg") no-repeat center top
+
+
+.home
+    position relative
+    flex 1 1 auto
+    height 100% 
+    
+    &__wrap
+        position relative
+        top 259px
+    
+    &__cntn
+        position relative
+        margin 0 auto
+        width 948px 
+        height 600px
+        
+        &._flex
+            display flex
+            flex-direction column
+        
+        &._scroll
+            display flex
+            flex-direction column
+            padding-bottom 30px
+            
+    &__scroll
+        position relative
+        overflow hidden
+        flex 1 1 auto
+        height 100%
+        
+        .scroll-bar.vertical
+            right 30px !important
+
+@media (max-height: 970px)
+
+    .home
+        &__wrap
+            position absolute
+            top auto
+            bottom 10px
+            width 100%
+
+
+    .page_home
+        background-position center bottom -310px

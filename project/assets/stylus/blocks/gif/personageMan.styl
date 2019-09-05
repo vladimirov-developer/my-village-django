@@ -1,0 +1,172 @@
+.personageBird
+    position relative
+    size(120px)
+    font-size 0
+    line-height 0 
+    
+    &__link
+        position absolute
+        left 0
+        top 0
+        bottom 0
+        right 0
+        z-index 20
+        overflow hidden
+        background-color rgba(#fff, .001)  
+
+    &__base
+        position absolute
+        left 0
+        top 0
+        background-repeat no-repeat 
+        size(120px)
+        
+    &._animation &__base
+        visibility hidden
+    
+    &__gif
+        position absolute
+        size(120px, 120px)
+        background-repeat no-repeat 
+        visibility hidden
+        
+        &._animation
+            visibility visible
+        
+    &__text
+        position absolute
+        bottom 100%
+        left 50% 
+        width 0
+        height 0
+        color #65553b
+        display none
+        
+    &._openOmen &__text
+        display block
+
+    &__textClose
+        position absolute
+        right 5px 
+        top 5px 
+        size(13px)
+        bg('close.png')
+        transition opacity .3s
+        opacity .8 
+        
+        &:hover
+            opacity 1
+            
+    &__textItem
+        display none
+        
+        &._active
+            display block
+        
+    &__textWrap
+        position absolute
+        bottom 0
+        left 50%
+        margin-left -28px
+        margin-bottom 10px  
+        transform translateX(-50%) 
+        width 270px
+        border-radius 12px 
+        background-color #FFF1D7  
+        padding 20px 
+        font-size 12px
+        line-height 18px  
+        filter drop-shadow(0 0 40px rgba(2e3c24, .35)) 
+        
+        &:after
+            position absolute
+            top 100%
+            right 50% 
+            margin-right -14px 
+            margin-top -2px  
+            display block
+            content "" 
+            width 0
+            height 0
+            border-left 14px solid transparent
+            border-top 40px solid #FFF1D7
+            border-right 14px solid transparent
+    
+
+.personageMan
+    position relative
+    size(250px, 400px)
+    font-size 0
+    line-height 0 
+    
+    &.js-gif-click
+        cursor pointer
+    
+    &__base
+        position absolute
+        left 0
+        top 0
+        background-repeat no-repeat 
+        size(250px, 400px)
+    
+    &__gif
+        position absolute
+        visibility hidden
+        size(250px, 400px)
+        background-repeat no-repeat 
+        
+        &._animation
+            visibility visible
+        
+        &._1
+            left -7px 
+            top 12px 
+
+        &._2
+            left -73px 
+            top 0
+            size(400px)
+
+        &._3
+            left -69px 
+            top -11px
+            size(325px, 400px)
+            
+    &._animation &__base
+        visibility hidden
+        
+    &__text
+        position absolute
+        left 100%
+        top 111px
+        margin-left -22px 
+        width 0
+        height 0
+        color #65553b
+        
+    &__textWrap
+        position absolute
+        top 50%
+        left 0
+        transform translateY(-50%) 
+        width 270px
+        border-radius 12px 
+        background-color #FFF1D7  
+        padding 20px 
+        font-size 12px
+        line-height 18px  
+        filter drop-shadow(0 0 40px rgba(2e3c24, .35)) 
+        
+        &:after
+            position absolute
+            top 50%
+            right 100% 
+            margin-right -2px 
+            margin-top -14px  
+            display block
+            content "" 
+            width 0
+            height 0
+            border-top 14px solid transparent
+            border-right 40px solid #FFF1D7
+            border-bottom 14px solid transparent

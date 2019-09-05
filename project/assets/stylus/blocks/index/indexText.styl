@@ -1,0 +1,161 @@
+.index
+    position relative
+    flex 1 1 auto
+    height 100% 
+
+    &__wrap
+        position absolute
+        bottom 0
+        left 0
+        width 100%
+        height 0
+        
+        .constrain
+            max-width none !important
+            width 1000px !important
+            padding 0 !important
+
+    &__container
+        position relative
+        height 0
+        // height 300px 
+        
+    &__mailLink
+        position absolute
+        bottom 100px 
+        left 73px 
+        display block
+        size(70px, 99px)
+        background-color rgba(#fff, 0.0001)
+        
+    &__genPlan
+        position absolute
+        bottom 322px 
+        left 556px 
+        display block
+        size(236px, 86px)
+        background-color rgba(#fff, 0.0001)
+        
+        
+    &__contactsLink
+        position absolute
+        bottom 118px 
+        left 169px 
+        display block
+        size(104px, 74px)
+        background-color rgba(#fff, 0.0001)
+    
+    &__aboutLink
+        position absolute
+        bottom 176px 
+        right 50px 
+        display block
+        size(104px, 74px)
+        background-color rgba(#fff, 0.0001)
+    
+    &__newsLink
+        position absolute
+        bottom 43px 
+        right 246px 
+        display block
+        size(110px, 61px)
+        background-color rgba(#fff, 0.0001)
+        
+    &__men
+        position absolute !important
+        bottom -44px !important
+        left 326px !important
+        
+    &__bird
+        z-index 300 
+        position absolute !important
+        bottom 267px !important
+        right 27px !important
+        
+    &__birdForum
+        position absolute
+        left 0
+        top 0
+        right 0
+        bottom 0
+        z-index 33 
+        overflow hidden
+        background-color rgba(#fff, .001)
+    
+.indexText
+    position absolute
+    left 0
+    top 0
+    bottom 650px
+    width 100%
+    display flex
+    flex-direction column
+    justify-content center
+    
+    &:after
+        position absolute
+        left 0
+        top 0
+        bottom 0
+        width 100%
+        height 100%
+        overflow hidden
+        content "" 
+        display block
+        background inline("clouds.png") no-repeat center center 
+        opacity .5 
+    
+    @media $bglg
+        bottom auto
+        height 217px
+    
+    &__wrap
+        position relative
+        z-index 2 
+        margin-left 595px
+        width 440px
+        
+        @media $lg
+            margin-left 765px
+
+    &__title
+        display block
+        margin-bottom 6px
+        font-weight 700
+        color $cRed
+        font-size 18px  
+        
+    &__content
+        font-size 13px 
+        line-height 20px
+        color #575454
+        
+        p
+            margin 0
+        
+    &__next
+        position relative
+        display inline-block
+        font-size 11px 
+        padding 0 8px 
+        text-decoration none !important
+        color inherit !important
+        
+        &:after
+            position absolute
+            left 0
+            right 0
+            top 1px 
+            display block
+            content "" 
+            height 19px
+            background-color #ECC686 
+            border-radius 10px 
+            transition background-color .3s
+        
+    &__next:hover:after
+        background-color #D8B478 
+        
+    &__nextTitle
+        position relative
+        z-index 2 

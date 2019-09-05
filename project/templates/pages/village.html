@@ -1,0 +1,85 @@
+{% extends 'base.html' %}{% load thumbnail %}
+
+{% block page_title %}{{ object.title }} - {{ sitesettings.name }}{% endblock %}
+
+{% block page_class %} page_home{% endblock %}
+
+{% block content %}
+    <div class="home">
+        <div class="home__wrap">
+            <div class="home__cntn village">
+                <div class="village__aside">
+                    <div class="village__head">
+                        <a href="{% url 'plan_general' %}" class="btn">Выбрать участок</a>
+                    </div>
+                    <div class="village__map">
+                        <img src="{{ STATIC_URL }}img/map.png" alt="Карта">
+                    </div>
+                    <a href="{% url 'photogallery_album_list' %}" class="galleryAlbum">
+                        <span class="galleryAlbum__preview" style="background-image:  url('{{ STATIC_URL }}img/album.png') "></span>
+
+                        <span class="galleryAlbum__title">Фотогалерея</span>
+                    </a>
+                </div>
+                <div class="village__cntn">
+                    <div class="village__text textBlock">
+                        <div class="textBlock__scroll js-scroll">
+                            <div class="textBlock__cntn">
+                                <h1>{{ object.title }}</h1>
+                                <div class="villageAdv">
+                                    <div class="villageAdv__item">
+                                        <div class="villageAdv__icon _1"></div>
+                                        <div class="villageAdv__title">Тихое, удаленное <br>от города и суеты место</div>
+                                    </div>
+                                    <div class="villageAdv__item">
+                                        <div class="villageAdv__icon _2"></div>
+                                        <div class="villageAdv__title">15 минут от города, <br>удобное расположение</div>
+                                    </div>
+                                    <div class="villageAdv__item">
+                                        <div class="villageAdv__icon _3"></div>
+                                        <div class="villageAdv__title">Живописная экологически <br>чистая местность</div>
+                                    </div>
+                                </div>
+                                {{ object.content|safe }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="villageInfo">
+                        <div class="villageInfo__item">
+                            <div class="villageInfo__icon _1"></div>
+                            <div class="villageInfo__title">Дорога</div>
+                        </div>
+                        <div class="villageInfo__item">
+                            <div class="villageInfo__icon _2"></div>
+                            <div class="villageInfo__title">Электричество</div>
+                        </div>
+                        <div class="villageInfo__item">
+                            <div class="villageInfo__icon _3"></div>
+                            <div class="villageInfo__title">Вода</div>
+                        </div>
+                        <div class="villageInfo__item">
+                            <div class="villageInfo__icon _4"></div>
+                            <div class="villageInfo__title">Газ</div>
+                        </div>
+                        <div class="villageInfo__item">
+                            <div class="villageInfo__icon _5"></div>
+                            <div class="villageInfo__title">Магазин</div>
+                        </div>
+                        <div class="villageInfo__item">
+                            <div class="villageInfo__icon _6"></div>
+                            <div class="villageInfo__title">Парк</div>
+                        </div>
+                        <div class="villageInfo__item">
+                            <div class="villageInfo__icon _7"></div>
+                            <div class="villageInfo__title">Детский сад</div>
+                        </div>
+                        <div class="villageInfo__item">
+                            <div class="villageInfo__icon _8"></div>
+                            <div class="villageInfo__title">Водоем</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

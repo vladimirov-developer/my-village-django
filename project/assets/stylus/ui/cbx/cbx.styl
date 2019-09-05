@@ -1,0 +1,77 @@
+.cbxField
+    position relative
+    display block
+    display inline-block
+    cursor pointer
+    size(20px)
+    font-size 12px 
+    line-height 1.2 
+
+    [type="checkbox"]
+        position absolute
+        top 0
+        left -1px
+        z-index 1 
+        margin 0
+        padding 0
+        size(20px)
+        opacity 0 
+        cursor pointer
+        
+    &__mrk
+        position relative
+        margin 2px 
+        box-sizing border-box
+        size(16px)
+        border 1px solid #d3cec5
+        display block
+        transition border-color .3s
+        background-color #FFF 
+
+        &:after
+            position absolute
+            left 2px 
+            top 3px
+            display block
+            content "" 
+            size(0, 8px)
+            background inline('check.svg') no-repeat left top
+            transition width .1s
+            
+    label:hover &__mrk
+        border-color rgba(#272E38, .5)
+    
+    [type="checkbox"]:checked + &__mrk
+        border-color rgba(#272E38, .5)
+
+    [type="checkbox"]:checked + &__mrk:after
+        width 10px
+        
+    &__lbl
+        position relative
+        top 2px 
+        transition color .3s
+
+        a
+            text-decoration underline
+            color inherit !important
+            
+            &:hover
+                text-decoration none
+                
+        label
+            cursor pointer
+    
+    label&__lbl
+        cursor pointer
+
+    &._inline
+        margin-bottom 20px
+        height auto
+        width auto
+        display flex
+        
+    &._inline &__mrk
+        margin 0 
+        margin-right 8px
+        flex 0 0 auto

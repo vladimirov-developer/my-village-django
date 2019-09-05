@@ -1,0 +1,36 @@
+{% load thumbnail %}
+
+<div class="landText__wrap">
+    <div class="landText__head">
+        <div class="landText__title">Участок №{{ object.number }}</div>
+        <div class="landText__headInfo">
+            {% if object.price %}
+            <div class="landText__price">
+                {{ object.price }}&nbsp;<span class="rubl"></span>
+            </div>
+            {% endif %}
+            <div class="landText__area">{{ object.area }}</div>
+            <a href="{% url 'plan_stead_reservation' object.pk %}" class="btn _greenSm">Забронировать</a>
+        </div>
+    </div>
+    <div class="landText__cntn js-scroll">
+        <div class="landText__files">
+        {% if sitesettings.plan_file1 %}
+            <div class="landText__file">
+                <a href="{{ sitesettings.plan_file1.url }}" class="landText__fileLink">Утверждение проекта планировки территории КП</a>
+            </div>
+        {% endif %}
+        {% if sitesettings.plan_file2 %}
+            <div class="landText__file">
+                <a href="{{ sitesettings.plan_file2.url }}" class="landText__fileLink">Постановление о разработке проекта планировки территории КП</a>
+            </div>
+        {% endif %}
+        </div>
+        {% if object.image %}
+        <div class="galleryAlbum galleryAlbum_var">
+            <span class="galleryAlbum__preview" style="background-image:  url('{% thumbnail object.image 166x114 crop %}') "></span>
+        </div>
+        {% endif %}
+        {{ object.content|safe }}
+    </div>
+</div>

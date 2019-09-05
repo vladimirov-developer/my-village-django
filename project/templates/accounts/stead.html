@@ -1,0 +1,24 @@
+{% extends 'base.html' %}{% load thumbnail %}
+
+{% block page_title %}Профиль пользователя{% endblock %}
+
+{% block page_class %} page_profile{% endblock %}
+
+{% block content %}
+    <div class="profile _flex">
+        
+        <div class="msgs">
+            <div class="msgs__wrap">
+                <div class="msgs__blockTitle">Участок №{{ object.number }}</div>
+                <div class="msgs__scroll js-scroll">
+                {{ object.content|safe }}
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+{% endblock %}
+
+{% block profile_active %} _active{% endblock %}

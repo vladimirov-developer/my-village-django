@@ -1,0 +1,43 @@
+{% extends 'base.html' %}{% load thumbnail %}
+
+{% block page_title %}Генплан{% endblock %}
+
+{% block page_class %} page_simple{% endblock %}
+
+{% block content %}
+    <div class="simple">
+        <div class="constrain">
+            <div class="planMain">
+                <div class="planMain__column">
+                    <div class="planText">
+                    {% if q2.preview %}
+                        {{ q2.preview|safe }}&nbsp;<a href="{% url 'plan_queue' 2 %}" class="planText__next" ><span class="planText__nextTitle">далее</span></a>
+                    {% endif %}
+                    </div>
+                    <a href="{% url 'plan_queue' 2 %}" class="planMain__item2">
+                        <div class="planFlag">
+                            вторая очередь
+                        </div>
+                        <img src="{{ STATIC_URL }}img/plan_2.png" alt="">
+                    </a>
+
+                    <div class="tokarevo">
+                        <div class="tokarevo__icon"></div>
+                        <div class="tokarevo__title">д. Токарево </div>
+                    </div>
+                </div>
+                <div class="planMain__column">
+                    <a href="{% url 'plan_queue' 1 %}" class="planMain__item1">
+                        <div class="planFlag" >
+                            первая очередь
+                        </div>
+                        <img src="{{ STATIC_URL }}img/plan_1.png" alt="">
+                    </a>
+                    <div class="planText">
+                        {{ q1.preview|safe }}&nbsp;<a href="{% url 'plan_queue' 1 %}" class="planText__next" ><span class="planText__nextTitle">далее</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

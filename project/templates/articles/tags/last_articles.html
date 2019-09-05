@@ -1,0 +1,13 @@
+{% load thumbnail %}
+
+{% for object in object_list %}
+<li>
+    <a href="{{ object.get_absolute_url}}">
+        <img src="{% thumbnail object.image 100x100 crop %}">
+        <p>{{ object }}</p>
+    </a>
+    <div>
+        {{ object.preview|safe }}
+    </div>
+</li>
+{% endfor %}

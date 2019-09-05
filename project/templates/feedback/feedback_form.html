@@ -1,0 +1,38 @@
+{% load widget_tweaks %}
+
+<form action="{% url 'feedback_feedback_form' %}" method="POST">
+    {% csrf_token %}
+    <div class="form__title">Обратная связь</div>
+    <div class="field">
+        <lable class="field__lbl">Ваше имя</lable>
+        {{ form.full_name|add_class:"inp" }}
+        {{ form.full_name.errors }}
+    </div>
+    <div class="field-inline">
+        <div class="field">
+            <lable class="field__lbl">Email</lable>
+            {{ form.email|add_class:"inp" }}
+            {{ form.email.errors }}
+        </div>
+        <div class="field-inline__txt">или</div>
+        <div class="field">
+            <lable class="field__lbl">Телефон</lable>
+            {{ form.phone|add_class:"inp" }}
+            {{ form.phone.errors }}
+        </div>
+    </div>
+    <div class="field">
+        <lable class="field__lbl">Сообщение</lable>
+        {{ form.text }}
+        {{ form.text.errors }}
+    </div>
+    {% if success %}
+    <div class="formOkMsg">
+        Сообщение отправлено.
+    </div>
+    {% endif %}
+    <div class="form__footer">
+        <button class="btn" type="submit">отправить</button>
+    </div>
+    <div class="contactsMail__envelopeTop"></div>
+</form>

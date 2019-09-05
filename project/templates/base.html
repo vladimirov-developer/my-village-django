@@ -1,0 +1,154 @@
+<!doctype html>{% load feedback_tags accounts_tags %}
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>{% if metadata.title %}{{ metadata.title }}{% else %}{% block page_title %}{% endblock %}{% endif %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ STATIC_URL }}images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="keywords" content="{% if metadata.keywords %}{{ metadata.keywords }}{% else %}{% block meta_keywords %}{% endblock %}{% endif %}">
+    <meta name="description" content="{% if metadata.description %}{{ metadata.description }}{% else %}{% block meta_description %}{% endblock %}{% endif %}">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
+</head>
+<body>
+    <div style="position: absolute; left: -90000px; top: -9000px;">
+        {% include 'svgstore.svg' %}
+    </div>
+    <div class="page{% block page_class %}{% endblock %}">
+        <div class="headerEmpty"></div>
+        <div class="header">
+            <div class="constrain">
+                <div class="header__container">
+                    <a href="/" class="header__logo">
+                        <img src="{{ STATIC_URL }}img/logo.png" alt="">
+                    </a>
+                    <div class="header__middle">
+                        
+                        <nav class="headerManu">
+                            <div class="headerManu__item">
+                                <a href="{% url 'plan_general' %}" class="headerManu__link{% if request.path|startswith:"/general/plan/" %} _active{% endif %}">Генплан</a>
+                            </div>
+                            <div class="headerManu__item">
+                                <a href="{% url 'village_page' %}" class="headerManu__link{% if request.path|startswith:"/village/" %} _active{% endif %}">О поселке</a>
+                            </div>
+                            <div class="headerManu__item">
+                                <a href="/pages/about/" class="headerManu__link{% if request.path|startswith:"/pages/about/" %} _active{% endif %}">О застройщике</a>
+                            </div>
+                            <div class="headerManu__item">
+                                <a href="{% url 'photogallery_album_list' %}" class="headerManu__link{% if request.path|startswith:"/photos/" %} _active{% endif %}">Фотогалерея</a>
+                            </div>
+                            <div class="headerManu__item">
+                                <a href="{% url 'articles_article_list' 'news' %}" class="headerManu__link{% if request.path|startswith:"/publications/news/" %} _active{% endif %}">Новости</a>
+                            </div>
+                            <div class="headerManu__item">
+                                <a href="{% url 'articles_article_list' 'articles' %}" class="headerManu__link{% if request.path|startswith:"/publications/articles/" %} _active{% endif %}">Статьи</a>
+                            </div>
+                            <div class="headerManu__item">
+                                <a href="{% url 'contacts_page' %}" class="headerManu__link{% if request.path|startswith:"/contacts/" %} _active{% endif %}">Контакты</a>
+                            </div>
+                        </nav>
+
+                    </div>
+                    <div class="header__right">
+                        <div class="headerContacts">
+                            <div class="headerContacts__item">{{ sitesettings.phone1 }}</div>
+                            <div class="headerContacts__item">{{ sitesettings.phone2 }}</div>
+                            <div class="headerContacts__item _icon">
+                                <a href="javascript:;" class="headerContacts__email js-open-popup" data-popup="#popup-contacts"></a>
+                                <div class="popup" id="popup-contacts">
+                                    <a href="javascript:;" class="popup__close"></a>
+                                    
+                                    <div class="form js-form-ajax">
+                                        {% include 'includes/loader.html' %}
+                                        <div class="form__container">
+                                            {% feedback_form %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="headerContacts__item _ml">
+                                <a href="javascript:;" class="headerContacts__login js-open-popup{% block profile_active %}{% endblock %}" data-popup="{% if user.is_authenticated %}#popup-user{% else %}#popup-login{% endif %}">Кабинет</a>
+
+                                <!-- class _active - для страницы профиля  -->                                
+<!--                                 #popup-login - для не авторизованного пользователя 
+                                #popup-user - для авторизованного пользователя  -->
+
+                                <div class="popup popup_login" id="popup-login">
+                                    <a href="javascript:;" class="popup__close"></a>
+                                    <div class="form formLogin js-form-ajax">
+                                        {% login_form %}
+                                    </div>
+                                </div>
+                                {% if user.is_authenticated %}
+                                <div class="popup popup_user" id="popup-user">
+                                    <div class="userMenu">
+                                        <div class="userMenu__item">
+                                            <a href="/accounts/profile/" class="userMenu__link">Личный кабинет</a>
+                                        </div>
+                                        <div class="userMenu__item">
+                                            <a href="{% url 'profile_messages' %}" class="userMenu__link">
+                                                Сообщения
+                                                {% if new_messages %}
+                                                <span class="userMenu__counter">{{ new_messages }}</span>
+                                                {% endif %}
+                                            </a>
+                                        </div>
+                                        {% if user.stead %}
+                                        <div class="userMenu__item">
+                                            <a href="{% url 'profile_docs' %}" class="userMenu__link">Документы</a>
+                                        </div>
+                                        {% endif %}
+                                        <div class="userMenu__item">
+                                            <a href="/publications/news/" class="userMenu__link">Новости</a>
+                                        </div>
+                                        {% if user.stead %}
+                                        <div class="userMenu__item">
+                                            <a href="{% url 'profile_stead' %}" class="userMenu__link">Информация по участку</a>
+                                        </div>
+                                        {% endif %}
+                                        <div class="userMenu__item">
+                                            <a href="/forum/index.php" class="userMenu__link">Форум</a>
+                                        </div>
+                                        <div class="userMenu__logout">
+                                            <a href="{% url 'accounts_logout' %}" class="userMenu__link">Выход </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block content %}
+        {% endblock %}
+
+        <div class="footer">
+            <div class="footer__container constrain">
+                <div class="footer__left">
+                    <div class="snetworks">
+                        <a href="#" class="snetworks__link _fb"></a>
+                        <a href="#" class="snetworks__link _vk"></a>
+                        <a href="#" class="snetworks__link _tw"></a>
+                        <a href="#" class="snetworks__link _gplus"></a>
+                    </div>
+                </div>
+
+                <div class="footer__right">
+                    <span class="footer__item">{{ sitesettings.copyright }}</span>
+                    <a href="#?" class="footer__item">Политика конфиденциальности</a>
+                </div>
+
+                         
+            </div>
+        </div>
+
+        {% block extra_footer %}{% endblock %}
+    </div>
+
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/scripts.js"></script>
+    {% block extra_js %}{% endblock %}
+    
+</body>
+</html>

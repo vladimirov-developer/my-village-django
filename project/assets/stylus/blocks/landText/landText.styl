@@ -1,0 +1,142 @@
+.landText
+    position absolute
+    left -9581px
+    top 0px
+    z-index 40 
+    width 632px
+    height 685px
+    background inline("bg_popup_landText.png") center center no-repeat
+    background-size contain
+    transition opacity .3s
+    opacity 0
+    visibility hidden
+    display none
+    
+    &__close
+        position absolute
+        right 88px
+        top 50px  
+        display block
+        font-size 0
+        line-height 0
+        padding 10px  
+        opacity 1 
+        transition opacity .3s
+        display none
+        
+        &:hover
+            opacity .8 
+        
+        &:after
+            display block
+            content "" 
+            bg('close.png')
+            size(11px)
+            
+    &__wrap
+        position relative
+        left 60px 
+        top 112px 
+        height 480px
+        width 536px
+        display flex
+        flex-direction column
+        color #575454 
+        
+    &__head
+        position relative
+        margin-bottom 24px
+        padding 0 45px 0 50px
+        flex 0 0 auto
+        
+    &__title
+        margin-bottom 5px
+        font-weight 700  
+        font-size 20px 
+        color $cRed
+        text-transform uppercase
+        
+    &__headInfo
+        position relative
+        display flex
+        align-items center
+        padding 6px 0 
+        font-size 15px 
+        line-height 1.2 
+        
+        .btn
+            position absolute
+            right 0
+            top -1px 
+        
+    &__price
+        margin-right 20px
+        flex 0 0 auto
+        font-weight 700
+        
+    &__container
+        opacity 0
+        transition opacity .3s 
+        
+    &__cntn
+        position relative
+        overflow hidden
+        flex 1 1 auto
+        height 100%
+        padding 0 45px 0 53px
+        
+        .viewport
+            padding-left 5px
+            margin-left -5px
+        
+        .scroll-bar.vertical
+            right 27px
+        
+        .galleryAlbum
+            float left
+            margin 0 18px 18px 0 
+            display block
+    
+    &__files
+        margin-bottom 25px
+        padding-right 30px
+    
+    &__file
+        margin-bottom 9px
+
+    &__fileLink
+        position relative
+        display inline-block
+        padding-left 31px
+        color inherit !important
+        text-decoration none
+        
+        &:after
+            position absolute
+            left 0
+            top 1px 
+            display block
+            content "" 
+            bg('file.png')
+            size(17px)
+        
+        a&:hover
+            text-decoration underline
+
+    .loader
+        display none
+
+    &._show
+        display block
+        left 581px
+        visibility visible
+
+    &._visible
+        opacity 1 
+        
+    &._ready .landText__container
+        opacity 1 
+        
+    &._loadContent .loader
+    &._ready .landText__close
+        display block

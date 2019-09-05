@@ -1,0 +1,119 @@
+{% extends 'base.html' %}{% load thumbnail %}
+
+{% block page_title %}Первая очередь - {{ sitesettings.name }}{% endblock %}
+
+{% block page_class %} page_simple{% endblock %}
+
+{% block content %}
+    <div class="simple">
+        <div class="constrain">
+            <div class="planDetail">
+                <div class="planDetail__wrap">
+                    <div class="planDetail__left _plan1">
+                        <div class="tokarevo _plan1">
+                            <div class="tokarevo__icon"></div>
+                            <div class="tokarevo__title">д. Токарево </div>
+                        </div>
+                        <div class="planDetailLegend">
+                            <div class="planDetailLegend__item">
+                                <div class="planDetailLegend__color" style="background-color: #6bbc3a;"></div>
+                                Свободен 
+                            </div>
+                            <div class="planDetailLegend__item">
+                                <div class="planDetailLegend__color" style="background-color: #ffbc53;"></div>
+                                Забронирован 
+                            </div>
+                            <div class="planDetailLegend__item _mb">
+                                <div class="planDetailLegend__color" style="background-color: #ff7353;"></div>
+                                Продан 
+                            </div>
+                            <div class="planDetailLegend__item">
+                                <div class="planDetailLegend__icon _kinder"></div>
+                                Детский сад 
+                            </div>
+                            <div class="planDetailLegend__item">
+                                <div class="planDetailLegend__icon _playground"></div>
+                                Игровая площадка 
+                            </div>
+                            <div class="planDetailLegend__item">
+                                <div class="planDetailLegend__icon _shop"></div>
+                                Магазин
+                            </div>
+                        </div>
+                        <div class="planDetailSvg planDetailSvg_1" id="js-plan" data-url="/general/plan/1/<%id%>/"{% if user.is_superuser %} data-edit="/general/plan/1/edit/<%id%>/"{% endif %}>
+                            <div class="planDetailSvg__icon _kinder">
+                                <div class="planDetailSvg__iconHind">Детский сад</div>
+                            </div>
+                            <div class="planDetailSvg__icon _playground">
+                                <div class="planDetailSvg__iconHind">Игровая площадка</div>
+                            </div>
+                            <div class="planDetailSvg__icon _shop">
+                                <div class="planDetailSvg__iconHind">Магазин</div>
+                            </div>
+                            {% include 'plan/plan_1_alt.svg' %}
+                        </div>
+                    </div>
+                    <div class="planDetail__right">
+                        <div class="planText">
+                            <h1>Первая очередь</h1>
+                            {{ object.preview|safe }}
+                        </div>
+
+                        <div class="planDetail__other2">
+                            <a href="{% url 'plan_queue' 2 %}">
+                                <span class="planFlag">
+                                    вторая очередь
+                                </span>
+                                <img src="{{ STATIC_URL }}img/plan_2.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="landText" id="landTextPopup">
+                        <a href="javascript:;" class="landText__close js-close"></a>
+                        {% include 'includes/loader.html' %}
+                        <div class="landText__container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $(function() {
+
+            initPlan({
+                'reserved': {{ reserved_steads|safe }},
+                'sold': {{ sold_steads|safe }},
+            });
+
+            {% if user.is_superuser %}
+                $('#main [id*="id"]').not('.area_alt').on('click', function(event){
+                    if(event.shiftKey) {
+                        var id = $(this).attr('id');
+                        var url_str = $('#js-plan').data('edit').replace('<%id%>', id);
+
+                        $.ajax({
+                            url: url_str,
+                            type: 'GET',
+                            success: function(data) {
+                                var win = window.open(data.url, '_blank');
+                                if (win) {
+                                    win.focus();
+                                }
+                            }
+                        });
+
+
+                        return false;
+                    }
+                });
+            {% endif %}
+        });
+    </script>
+
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}{% load thumbnail plan_tags %}
+
+{% block page_title %}Бронирование{% endblock %}
+
+{% block page_class %} page_simple{% endblock %}
+
+{% block content %}
+    <div class="simple">
+        <div class="constrain">
+            <div class="reservation">
+                <div class="reservation__left">
+                    <div class="reservation__other1">
+                        <a href="#?">
+                            <span class="planFlag">
+                                первая очередь
+                            </span>
+                            <img src="{{ STATIC_URL }}img/plan_1.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="reservation__cntn">
+                    <div class="contactsMail">
+                        <div class="contactsMail__envelopeBot"></div>
+                        <div class="form js-form-ajax">
+                            {% include 'includes/loader.html' %}
+                            <div class="form__container">
+                                {% order_form stead %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="reservation__right">
+                    <div class="reservation__other2">
+                        <a href="#?">
+                            <span class="planFlag">
+                                вторая очередь
+                            </span>
+                            <img src="{{ STATIC_URL }}img/plan_2.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

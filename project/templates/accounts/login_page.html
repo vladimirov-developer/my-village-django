@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load accounts_tags %}
+
+{% block page_title %}Авторизация{% endblock %}
+
+{% block page_class %} page_empty{% endblock %}
+
+{% block content %}
+    <div class="empty">
+        <div class="emptyClouds"></div>
+        <div class="empty__cntn">
+
+            <div class="emptyForm">
+                <div class="empty__title">Авторизация</div>
+
+                <div class="form formLogin js-form-ajax">
+                    {% login_form %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+

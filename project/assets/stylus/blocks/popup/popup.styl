@@ -1,0 +1,45 @@
+.popup
+    position absolute
+    right 100px 
+    top 50px
+    width 445px
+    background-color #FFF  
+    box-shadow 0 0 60px rgba(#2e3c24, .27) 
+    display none
+    opacity 0
+    transition opacity .3s
+    
+    &_login
+        width 273px
+        
+    &_user
+        width 220px
+    
+    &._show
+        display block
+        
+    &._visible
+        opacity 1 
+    
+    &__close
+        position absolute
+        right 0
+        top 0
+        z-index 40 
+        font-size 0
+        line-height 0
+        padding 10px 
+        transition opacity .3s
+        opacity 1 
+        
+        &:hover
+            opacity .8
+        
+        &:after
+            content ""  
+            display block
+            bg('close.png')
+            size(12px)
+    
+    .contactsMail__envelopeTop
+        display none

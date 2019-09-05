@@ -1,0 +1,64 @@
+.btn
+    box-sizing  border-box
+    text-transform uppercase 
+    border none
+    height 40px 
+    display inline-block
+    color #fff
+    cursor pointer 
+    background none
+    transition background-color .4s ease-in-out, color .4s ease-in-out, transform .1s, box-shadow .1s, opacity .3s
+    border-radius 20px 
+    padding 0 20px
+    outline none
+    background $cBlue 
+    font-weight bold 
+    font-size 12px 
+    line-height 42px 
+    text-align center
+    background-color $cRed 
+    text-decoration none
+    box-shadow 0 4px 0 #6c1112 
+    opacity 1 
+    transform translateY(0)
+    
+    &:hover
+        text-decoration none
+        color #fff
+        background-color $cRedD 
+        
+    &:active
+        transform translateY(4px)
+        box-shadow 0 0 0 #6c1112 
+
+    &_disabled,
+    &[disabled]
+        background #0c3a48
+        color #53747e  
+        cursor default
+
+
+        
+.btn._greenSm
+    border-radius 15px 
+    height 30px
+    font-size 11px 
+    line-height 32px
+    padding 0 17px
+    box-shadow 0 2px 0 #6c1112 
+    background-color #469a09
+    box-shadow 0 2px 0 #1c6d03
+
+    &:active
+        transform translateY(2px)
+        box-shadow 0 0 0 #1c6d03 
+
+    &:hover
+        background-color #3b8407
+        
+
+._loading .btn[type="submit"]
+    opacity .4 
+    cursor default
+    transform translateY(0) !important
+    box-shadow 0 4px 0 #6c1112 !important

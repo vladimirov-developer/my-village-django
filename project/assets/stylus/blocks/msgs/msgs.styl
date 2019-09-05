@@ -1,0 +1,55 @@
+.msgs
+    display flex
+    flex 1 1 auto
+    height 100%
+    padding 36px 0 20px 
+    margin 0 auto 
+    width 860px
+    display flex
+    flex-direction column
+    
+    &__wrap
+        height 100% 
+        flex 1 1 auto
+        display flex
+        background-color #FFF 
+        box-shadow 0 0 60px rgba(#2e3c24, .27) 
+        flex-direction column
+        padding 29px 22px 28px 30px 
+        
+    &__blockTitle
+        flex 0 0 auto
+        padding 0 12px 
+        margin-bottom 12px 
+        color #903334
+        font-size 18px 
+        font-weight 700 
+        
+    &__scroll
+        position relative
+        overflow hidden
+        flex 1 1 auto
+        height 100%
+    
+    &__item
+        border-bottom 1px solid #eeece8 
+        padding 14px 12px 1px
+        margin-right 19px 
+        
+        &._new
+            background-color #ecf5e6
+        
+        &:last-child
+            border-bottom none 
+    
+    &__title
+        margin-bottom 7px 
+        font-size 11px 
+        line-height 20px 
+        color #469a09
+        
+    &__text
+        margin-bottom 14px
+        font-size 13px
+        line-height 1.54  
+        color #575454

@@ -1,0 +1,39 @@
+.popupText
+    position absolute
+    left 50%
+    top 50%
+    z-index 2000 
+    margin-left -452px 
+    margin-top -400px 
+    bg('bg_popup_index.png')
+    size(905px, 787px)
+    display none
+    opacity 0 
+    transition opacity .3s
+    
+    &._show
+        display block
+        
+    &._visible
+        opacity 1
+    
+    &__close
+        position absolute
+        right 156px 
+        top 105px 
+        size(25px)
+        bg('close.png')
+        transition opacity .3s
+        opacity .8 
+        
+        &:hover
+            opacity 1
+        
+    &__wrap
+        font-size 13px 
+        line-height 19px
+        color #65553b
+        margin 194px 130px 0 170px
+        
+        p
+            margin-bottom 5px

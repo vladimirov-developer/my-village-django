@@ -1,0 +1,45 @@
+{% extends 'base.html' %}{% load thumbnail feedback_tags %}
+
+{% block page_title %}Контакты - {{ sitesettings.name }}{% endblock %}
+
+{% block page_class %} page_fence{% endblock %}
+
+{% block content %}
+    <div class="fence">
+        <div class="fence__cntn">
+            <div class="contacts">
+                <div class="contactsInfo">
+                    <div class="contactsInfo__title">
+                        Коттеджный поселок <br>Восточное Токарево
+                    </div>
+                    <div class="contactsInfo__section">
+                        <div class="contactsInfo__sub">Телефон:</div>
+                        <div class="contactsInfo__item">{{ sitesettings.phone1 }}</div>
+                        <div class="contactsInfo__item">{{ sitesettings.phone2 }}</div>
+                    </div>
+                    <div class="contactsInfo__section">
+                        <div class="contactsInfo__sub">Email:</div>
+                        <div class="contactsInfo__item">
+                            <a href="mailto:{{ sitesettings.email }}">{{ sitesettings.email }}</a>
+                        </div>
+                    </div>
+                    <div class="contactsInfo__section">
+                        <div class="contactsInfo__sub">Адрес:</div>
+                        <div class="contactsInfo__item">{{ sitesettings.address }}</div>
+                    </div>
+                </div>
+                <div class="contacts__right">
+                    <div class="contactsMail">
+                        <div class="contactsMail__envelopeBot"></div>
+                        <div class="form js-form-ajax">
+                            {% include 'includes/loader.html' %}
+                            <div class="form__container">
+                                {% feedback_form %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

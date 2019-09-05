@@ -1,0 +1,37 @@
+{% extends 'base.html' %}{% load thumbnail %}
+
+{% block page_title %}Профиль пользователя{% endblock %}
+
+{% block page_class %} page_profile{% endblock %}
+
+{% block content %}
+    <div class="profile _flex">
+        
+        <div class="msgs">
+            <div class="msgs__wrap">
+                <div class="msgs__blockTitle">Сообщения</div>
+                <div class="msgs__scroll js-scroll">
+                {% for object in object_list %}
+                    <div class="msgs__item{% if object.pk in new_list %} _new{% endif %}">
+                        <div class="msgs__title">{{ object.created_at|date:"d.m.Y H:i" }}&nbsp;&nbsp;{{ object.from_name }}</div>
+                        <div class="msgs__text">
+                           {{ object.text|linebreaks }}
+                        </div>
+                    </div>
+                {% empty %}
+                    <div class="msgs__item{% if object.pk in new_list %} _new{% endif %}">
+                        <div class="msgs__text">
+                           У вас нет пока ни одного сообщения.
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+{% endblock %}
+
+{% block profile_active %} _active{% endblock %}

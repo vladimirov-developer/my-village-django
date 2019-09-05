@@ -1,0 +1,30 @@
+{% load widget_tweaks %}
+
+<form action="{% url 'accounts_login' %}" method="POST">
+    {% csrf_token %}
+    {% include 'includes/loader.html' %}
+    <div class="form__title">Авторизация</div>
+    <div class="field">
+        {{ form.username|add_class:"inp"|attr:"placeholder:Логин" }}
+        {% if form.errors %}<ul class="errorList"></li class="error">Не правильное имя пользователя или пароль</li></ul>{% endif %}
+    </div>
+    <div class="field">
+        {{ form.password|add_class:"inp"|attr:"placeholder:Пароль" }}
+    </div>
+    <div class="formLogin__footer">
+        <div class="formLogin__footerLeft">
+            <div class="cbxField _inline">
+                <input type="checkbox" name="remember" id="id_remembe">
+                <span class="cbxField__mrk"></span>
+                <label for="id_remembe" class="cbxField__lbl">Запомнить</label>
+            </div>
+        </div>
+        <div class="formLogin__footerRight">
+            <button class="btn _greenSm" type="submit">войти</button>
+        </div>
+    </div>
+
+    <div class="formLogin__reset">
+        <a href="#?" class="formLogin__resetLink">Восстановление пароля</a>
+    </div>
+</form>

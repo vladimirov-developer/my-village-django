@@ -1,0 +1,53 @@
+// Retina images mixin
+
+img2x( imgpath, w, h )
+
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx)
+
+        background-image url(imgpath)
+        background-size w h
+
+// Clearfix
+
+cf()
+    &:after
+        content ""
+        display table
+        clear both
+
+
+size(width, height = null)
+    width width
+    if height
+        height height
+    else
+        height width
+
+
+clearList()
+    list-style none
+    margin-bottom 0
+    padding-left 0
+
+
+clearLink()
+    color $cText
+    text-decoration none
+    
+    &:hover
+        color $cText
+        text-decoration none
+        
+
+bg(img, size_cover = null)
+    background inline(img) no-repeat center center
+    if size_cover
+        background-size cover
+    else
+        background-size contain

@@ -1,0 +1,32 @@
+.page_index
+    background #8af3ff url("/static/img/bgs/bg.jpg") no-repeat center bottom
+    
+.page_empty
+    background #8af3ff url("/static/img/bgs/empty.jpg") no-repeat center bottom
+
+
+.index__container
+    bottom 190px !important
+
+
+@media $bglg
+    .index__wrap
+        bottom auto !important
+        top 634px !important
+
+    .page_index
+    .page_empty
+        background-position center -150px
+        
+
+    .index__container
+        bottom 0 !important
+
+
+@media $bgsm
+    body
+        display block 
+        height 100%
+
+    .page
+        min-height 740px 

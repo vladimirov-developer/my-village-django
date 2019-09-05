@@ -1,0 +1,79 @@
+.page_profile
+    background #6fb94a url("/static/img/bgs/profile.jpg") no-repeat center bottom
+
+// .profile
+//     position relative
+//     flex 1 1 auto
+//     height 100% 
+
+// @media (max-height: 1090px)
+
+//     .page_profile
+//         background-position center top -300px
+
+
+.profile
+    flex 1 1 auto
+    height 100% 
+    
+    &._flex
+        display flex
+        flex-direction column
+
+    &__wrap
+        position absolute
+        bottom 0
+        left 0
+        width 100%
+        
+        .constrain
+            max-width none !important
+            width 1000px !important
+            padding 0 !important
+    
+    &__container
+        position relative
+        bottom 155px
+        
+    &__news
+        position absolute
+        bottom 218px 
+        left 675px 
+        left 415px 
+        display block
+        size(240px, 135px)
+        background-color rgba(#fff, .01)
+        
+    &__mail
+        position absolute
+        bottom 246px 
+        left 6px 
+        display block
+        size(240px, 118px)
+        background-color rgba(#fff, .01)
+        
+    &__feedback
+        position absolute
+        bottom 237px 
+        left 234px 
+        z-index 4 
+        display block
+        size(102px, 160px)
+        background-color rgba(#fff, .01)
+        
+    &__forum
+        position absolute
+        bottom 278px 
+        right 178px 
+        z-index 4 
+        display block
+        size(87px, 140px)
+        background-color rgba(#fff, .01)
+
+
+@media (max-height: 1010px)
+    .profile__container
+        bottom 0
+
+    .page_profile
+        background-position center bottom -155px

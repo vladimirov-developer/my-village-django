@@ -1,0 +1,120 @@
+h1
+h2
+h3
+h4
+h5
+h6
+    margin 0 0 .8em
+    font-weight 700
+    font-family $baseFont 
+    
+    p + &
+        margin-top 1.2em
+
+h1
+    font-size 200%
+
+h2
+    font-size 120%
+
+h3
+    font-size 110%
+
+h4
+    font-size 100%
+
+h5
+    font-size 100%
+
+h6
+    font-size 100%
+
+p
+    margin-bottom .7em
+
+
+// list
+ol
+ul
+    margin-bottom 1em
+    padding-left 30px
+
+    ul
+    ol
+        margin-bottom 0
+        
+
+li
+    margin-bottom .5em 
+
+
+ul
+    list-style none
+    padding-left 0
+    
+    li
+        position relative
+        padding-left 30px
+        
+        &:after
+            position absolute
+            left 7px
+            top .5em 
+            display block
+            border-radius 50% 
+            size(7px)
+            background-color #53A618 
+            content "" 
+
+
+
+ol
+    list-style decimal
+
+
+ul.unstyled
+ol.unstyled
+    padding-left 0
+    list-style none
+    
+iframe
+    margin-bottom 1.4em
+
+.videoWrap
+    position relative
+    margin-bottom 1.4em
+    padding-bottom 56.25% /* 16:9 */
+    padding-top 25px
+    height 0
+    
+    iframe
+        margin-bottom 0
+        position absolute
+        top 0
+        left 0
+        width 100%
+        height 100%
+
+// table
+table
+    margin-bottom 1.4em
+    border-spacing 0
+    border-collapse collapse
+    max-width 100%
+
+th
+td
+      border 1px solid #ddd
+      padding 9px 8px 8px
+      text-align left
+      vertical-align top
+
+th
+    font-weight bold
+
+    thead &
+        background-color #F3F3F3
+        border-bottom-width 2px
+
+thead td
+    background #F3F3F3

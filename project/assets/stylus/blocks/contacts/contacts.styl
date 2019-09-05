@@ -1,0 +1,137 @@
+.contacts
+    margin 0 auto 
+    display flex
+    justify-content center
+    align-items flex-start
+    
+    &__right
+        position relative
+        left -3px 
+        flex 0 0 auto
+        width 446px
+        z-index 10 
+
+.contactsInfo
+    position relative
+    top 38px 
+    width 333px
+    padding 31px 43px 45px 42px 
+    background-color #FFF 
+    box-shadow -6px 10px 0 rgba(#947e59, .3)
+    font-size 13px 
+    line-height 1.2 
+    color #575454
+    flex 0 0 auto
+    
+    a
+        text-decoration none
+        
+        &:hover
+            text-decoration underline
+    
+    &__title
+        font-size 18px 
+        line-height 26px 
+        color $cRed
+        font-weight 700
+        margin-bottom 27px 
+        
+    &__section
+        margin-bottom 30px
+        
+        &:last-child
+            margin-bottom 0
+        
+    &__item
+        margin-top 10px 
+        
+    &__sub
+        margin-bottom 12px
+        font-weight 700 
+        color #575454
+        font-size inherit
+        text-transform uppercase 
+        
+
+
+.contactsMail
+    position relative
+    width 446px
+    color #575454
+    padding-top 15px
+
+    .form
+        z-index 4 
+        bottom 15px
+        padding-bottom 162px
+        box-shadow -4px 10px 0 rgba(#947e59, .3)
+        min-height 468px 
+        
+    .loader
+        margin-top -85px
+
+    .form__footer
+        margin-bottom -107px
+        padding 30px 0
+        text-align center 
+
+    &__envelopeTop
+        position absolute
+        bottom -15px
+        left 50%
+        z-index 5 
+        margin-left -251px
+        width 502px
+        height 170px
+        background-color #EAEDD8 
+        
+        &:after
+        &:before
+            position absolute
+            top -38px 
+            display block
+            width 0
+            height 0
+            border-top 38px solid transparent
+            border-bottom 38px solid transparent
+            content "" 
+            
+        &:after
+            right 0
+            border-right 38px solid #EAEDD8
+            
+        &:before
+            left 0
+            border-left 38px solid #EAEDD8
+            
+    &__envelopeBot
+        position absolute
+        bottom 0
+        left 50%
+        z-index 2
+        margin-left -251px
+        width 502px
+        height 208px
+        background-color #D7DBBE 
+        filter drop-shadow(-6px 10px 0 rgba(#947e59, .3))
+        
+        &:after
+        &:before
+            position absolute
+            top -40px 
+            display block
+            width 0
+            height 0
+            border-top 40px solid transparent
+            border-bottom 40px solid transparent
+            content "" 
+            
+        &:after
+            left 0
+            border-right 30px solid #D7DBBE
+            
+        &:before
+            right 0
+            border-left 30px solid #D7DBBE
+
+

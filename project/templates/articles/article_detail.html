@@ -1,0 +1,45 @@
+{% extends 'base.html' %}{% load thumbnail %}
+
+{% block page_title %}{{ object }} - {{ data_type_name }} - {{ sitesettings.name }}{% endblock %}
+
+{% block page_class %} page_table{% endblock %}
+
+{% block content %}
+    <div class="tableBg">
+        <div class="tableBg__cntn">
+            <div class="articles">
+                {% if data_type == 'articles' %}
+                <div class="articles__headArticles">
+                    <h1 class="articles__headArticlesTitle">Статьи</h1>
+                </div>
+                {% else %}
+                    <div class="articles__headNews">
+                        <h1 class="articles__headNewsTitle">Новости</h1>
+                    </div>
+                {% endif %}
+                <article class="articlesDetail js-scroll">
+                    <header class="articlesDetail__head">
+                        <h1>{{ object }}</h1>
+                        <div class="articlesDetail__date">{{ object.created_at|date:"d.m.Y" }}</div>
+                    </header>
+                    <section>
+                        <!-- тут без кропа должно быть с шириной 666px -->
+                        <!-- <img src="{% thumbnail object.image 666x200 crop %}" class="articlesDetail__pic">  -->
+                        <img src="{% thumbnail object.image 666x10000 %}" alt="" class="articlesDetail__pic">
+
+                        <!-- {{ object.content|safe }} -->
+                        {{ object.content|safe }}
+
+                    </section>
+                </article>
+                <div class="articles__footer">
+                {% if data_type == 'news' %}
+                    <a href="{% url 'articles_article_list' data_type %}">К списку новостей</a>
+                {% else %}
+                    <a href="{% url 'articles_article_list' data_type %}">К списку статей</a>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,71 @@
+.gallery
+    padding 0 52px 
+    
+    &__list
+        display flex
+        flex-wrap wrap
+        margin-top -27px 
+    
+    &__item
+        font-size 0
+        line-height 0
+        text-align center 
+        width 25%
+        margin-top 27px
+        flex 0 0 auto
+
+
+.galleryAlbum
+    display inline-block
+    position relative
+    width 174px
+    text-decoration none !important
+    color #575454 !important
+    text-transform uppercase
+    
+    &.js-popup-albums
+        cursor pointer
+    
+    &:after
+        position absolute
+        left 0
+        top 8px
+        background-color #fff 
+        size(166px, 115px)
+        box-shadow 0 6px 0 rgba(#af9975, .25) 
+        display block
+        content "" 
+        transition box-shadow .3s
+
+    &__preview
+        position relative
+        left 8px 
+        z-index 2 
+        display block
+        border 6px solid #fff
+        size(166px, 114px)
+        background-position center center
+        background-size cover 
+        box-shadow 0 6px 0 rgba(#af9975, .25) 
+        transition box-shadow .3s
+        
+    &.js-popup-albums:hover:after
+    &.js-popup-albums:hover &__preview
+        box-shadow 0 6px 0 rgba(#af9975, .45) 
+        
+    &__title
+        margin 20px 0 0 0 
+        display block
+        text-align center
+        font-size 12px 
+        line-height 17px 
+        font-weight 700 
+        
+.galleryAlbum_var
+    
+    &:after
+        box-shadow -3px 5px 0 rgba(#af9975, .25) 
+
+    .galleryAlbum
+        &__preview
+            box-shadow -3px 4px 0 rgba(#af9975, .25) 

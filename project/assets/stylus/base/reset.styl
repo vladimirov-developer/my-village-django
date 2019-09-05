@@ -1,0 +1,108 @@
+html,body,div,span,strong,h1,h2,h3,h4,h5,h6,
+p,blockquote,a,address,em,img,ins,q,b,u,i,
+object,label, ul, li,ol, form {
+    margin 0
+    padding 0
+    outline 0
+    background transparent
+    max-height 999999px //android font-size fix
+    -webkit-font-smoothing: antialiased;
+    min-height 0
+    min-width 0
+    box-sizing border-box
+}
+
+
+html
+button
+input
+select
+textarea
+    outline none
+    box-sizing border-box
+
+button
+    padding 0
+    border none
+    background none
+
+a
+    color $cLink
+    text-decoration underline
+    outline none
+
+    &:focus
+    &:hover
+    &:active
+        outline none
+    img
+        border none
+
+    &:hover
+        text-decoration none
+
+input
+select
+button
+textarea
+    font normal $baseFontSize/$baseLineHeight $baseFont
+    color $cText
+
+img
+    max-width 100% 
+
+// ===== utils =====
+.clear
+    clear both
+    font-size 0
+    line-height 0
+    height 0
+
+.clearfix:after
+    content: "";
+    display: table;
+    clear: both;
+
+.pull-right
+    float right
+
+.pull-left
+    float left
+
+.text-center
+    text-align center
+
+.text-left
+    text-align left
+
+.text-right
+    text-align right
+   
+.section
+    position relative
+    padding 0px 40px
+    
+.uppercase
+    text-transform uppercase
+
+.valign
+    height 100%   
+    
+    &:before
+        content ''
+        height 100%
+        display inline-block     
+        vertical-align middle
+        margin-right -0.25em 
+
+.justifyed{
+    text-align: justify;
+    //text-align center
+    margin-bottom -1em 
+
+    &:after{
+        display: inline-block;
+        content: '';
+        width: 100%;
+    }
+}

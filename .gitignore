@@ -1,0 +1,8 @@
+*.pyc
+*.pyo
+*.psd
+project/static/media/
+!project/static/.gitkeep
+node_modules
+db.sqlite3
+.DS_Store

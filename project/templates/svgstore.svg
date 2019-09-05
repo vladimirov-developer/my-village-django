@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="close" viewBox="0 0 18 18">
+    <!-- Generator: Sketch 39 (31667) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_close2</title>
+    <desc>Created with Sketch.</desc>
+    
+    <g id="Design-4" stroke="none" stroke-width="1" fill-rule="evenodd">
+        <g id="4-Main:-horse-info" transform="translate(-1353.000000, -143.000000)">
+            <g id="Horse-info" transform="translate(1101.000000, 120.000000)">
+                <g id="ic_close" transform="translate(252.000000, 23.000000)">
+                    <polygon id="Line" points="15.4350288 16.8492424 16.1421356 17.5563492 17.5563492 16.1421356 16.8492424 15.4350288 2.70710678 1.29289322 2 0.585786438 0.585786438 2 1.29289322 2.70710678"/>
+                    <polygon id="Line-Copy-10" points="1.29289322 15.4350288 0.585786438 16.1421356 2 17.5563492 2.70710678 16.8492424 16.8492424 2.70710678 17.5563492 2 16.1421356 0.585786438 15.4350288 1.29289322"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</symbol><symbol id="mail" viewBox="0 0 13 10">
+  <title>main</title>
+  <path d="M0,3.94556V10H13V3.94556L6.58551,6.93878ZM0,0V2.85718L6.58551,5.85034,13,2.85718V0H0Z" transform="translate(0)" fill-rule="evenodd"/>
+</symbol></svg>

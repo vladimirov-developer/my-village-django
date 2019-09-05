@@ -1,0 +1,22 @@
+{% extends 'base.html' %}{% load thumbnail %}
+
+{% block page_title %}{{ album }} - Фотогалерея{% endblock %}
+
+{% block content %}
+<h1>{{ album }}</h1>
+<ul>
+{% for object in object_list %}
+<li>
+    <a href="{{ object.image.url }}">
+        <img src="{% thumbnail object.image 200x150 crop %}">
+        <p>{{ object }}</p>
+    </a>
+</li>
+{% endfor %}
+</ul>
+{% include 'includes/pages.html' %}
+<div>
+ {{ album.content|safe }}
+</div>
+
+{% endblock %}

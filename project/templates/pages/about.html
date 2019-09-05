@@ -1,0 +1,25 @@
+{% extends 'base.html' %}{% load thumbnail %}
+
+{% block page_title %}{{ flatpage.title }} - {{ sitesettings.name }}{% endblock %}
+
+{% block page_class %} page_home{% endblock %}
+
+{% block content %}
+    <div class="home">
+        <div class="home__wrap">
+            <div class="home__cntn _flex about">
+                <div class="about__cntn textBlock">
+                    <div class="textBlock__scroll js-scroll">
+                        <div class="textBlock__cntn">
+                            <h1>{{ flatpage.title }}</h1>
+                            {{ flatpage.content|safe }}
+                        </div>
+                    </div>
+                </div>
+                <div class="about__footer">
+                    <a href="{% url 'plan_general' %}" class="btn">Выбрать участок</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

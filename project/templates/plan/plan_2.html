@@ -1,0 +1,101 @@
+{% extends 'base.html' %}{% load thumbnail %}
+
+{% block page_title %}Вторая очередь - {{ sitesettings.name }}{% endblock %}
+
+{% block page_class %} page_simple{% endblock %}
+
+{% block content %}
+    <div class="simple">
+        <div class="constrain">
+
+            <div class="planDetail">
+                <div class="tokarevo">
+                    <div class="tokarevo__icon"></div>
+                    <div class="tokarevo__title">д. Токарево </div>
+                </div>
+                <div class="planDetail__wrap">
+                    <div class="planDetail__left">
+                        <div class="planDetailLegend planDetailLegend_2">
+                            <div class="planDetailLegend__item">
+                                <div class="planDetailLegend__color" style="background-color: #6bbc3a;"></div>
+                                Свободен 
+                            </div>
+                            <div class="planDetailLegend__item">
+                                <div class="planDetailLegend__color" style="background-color: #ffbc53;"></div>
+                                Забронирован 
+                            </div>
+                            <div class="planDetailLegend__item _mb">
+                                <div class="planDetailLegend__color" style="background-color: #ff7353;"></div>
+                                Продан 
+                            </div>
+                        </div>
+                        <div class="planDetailSvg planDetailSvg_2" id="js-plan" data-url="/general/plan/2/<%id%>/"{% if user.is_superuser %} data-edit="/general/plan/2/edit/<%id%>/"{% endif %}>
+                            {% include 'plan/plan_2_alt.svg' %}
+                        </div>
+                    </div>
+                    <div class="planDetail__right">
+                        <div class="planText">
+                            <h1>Вторая очередь</h1>
+                        {% if object.preview %}
+                            {{ object.preview|safe }}
+                        {% endif %}
+                        </div>
+
+                        <div class="planDetail__other1">
+                            <a href="{% url 'plan_queue' 1 %}">
+                                <span class="planFlag">
+                                    первая очередь
+                                </span>
+                                <img src="{{ STATIC_URL }}img/plan_1.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="landText" id="landTextPopup">
+                        <a href="javascript:;" class="landText__close js-close"></a>
+                        {% include 'includes/loader.html' %}
+                        <div class="landText__container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $(function() {
+
+            initPlan({
+                'reserved': {{ reserved_steads|safe }},
+                'sold': {{ sold_steads|safe }},
+            });
+
+            {% if user.is_superuser %}
+                $('#main [id*="id"]').not('.area_alt').on('click', function(event){
+                    if(event.shiftKey) {
+                        var id = $(this).attr('id');
+                        var url_str = $('#js-plan').data('edit').replace('<%id%>', id);
+
+                        $.ajax({
+                            url: url_str,
+                            type: 'GET',
+                            success: function(data) {
+                                var win = window.open(data.url, '_blank');
+                                if (win) {
+                                    win.focus();
+                                }
+                            }
+                        });
+
+
+                        return false;
+                    }
+                });
+            {% endif %}
+        });
+    </script>
+
+
+{% endblock %}

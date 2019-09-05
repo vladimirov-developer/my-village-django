@@ -1,0 +1,53 @@
+.planText
+    font-size 13px 
+    line-height 20px
+    color #fff
+    
+    h1
+    .h1
+        margin-bottom 16px
+        font-weight 700 
+        font-size 20px 
+        text-transform uppercase
+    
+    p
+        margin 0
+        
+    &__next
+        position relative
+        display inline-block
+        font-size 11px 
+        padding 0 8px 
+        text-decoration none !important
+        color #575454 !important
+        
+        &:after
+            position absolute
+            left 0
+            right 0
+            top 1px 
+            display block
+            content "" 
+            height 19px
+            background-color #ECC686 
+            border-radius 10px 
+            transition background-color .3s
+
+    &__nextTitle
+        position relative
+        z-index 2 
+
+    &__next:hover:after
+        background-color #D8B478 
+        
+
+.planFlag
+    size(173px, 50px)
+    bg("flag.png")
+    font-size 13px
+    padding 10px 0 0 17px 
+    line-height 18px 
+    font-weight 700
+    color $cRed
+    text-transform uppercase  
+    text-decoration none !important

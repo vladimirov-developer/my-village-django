@@ -1,0 +1,95 @@
+{% extends 'base.html' %}{% load thumbnail %}
+
+{% block page_title %}Фотогалерея{% endblock %}
+
+{% block page_class %} page_home{% endblock %}
+
+{% block content %}
+    <div class="home">
+        <div class="home__wrap">
+            <div class="home__cntn _scroll">
+                <div class="home__scroll js-scroll">
+                    <div class="gallery">
+                        
+                        <div class="gallery__list">
+                            {% for object in object_list %}
+                                <div class="gallery__item">
+                                    <a href="javascript:;" data-index="{{ forloop.counter0 }}" class="galleryAlbum js-popup-albums">
+                                        <span class="galleryAlbum__preview" style="background-image:  url({% thumbnail object.image 308x213 crop %}) "></span>
+
+                                        <span class="galleryAlbum__title">{{ object.title }}</span>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                            {% include 'includes/pages.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block extra_js %}
+    <script type="text/javascript">
+        var albums = [
+            {% for object in object_list %}
+                [
+                    {% for photo in object.photos.all %}
+                        {
+                            href: '{{ photo.image.url }}',
+                            title: '{{ photo.title }}'
+                        }{% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                ]{% if not forloop.last %},{% endif %}
+            {% endfor %}
+        ]
+
+        function getTitle(obj){
+            var str = '<div class="fancybox-title-wrap">'
+            str += '<div class="fancybox-title-wrap__main">'+ (obj.title ? '' + obj.title + '' : '') +'</div>';
+            
+            str += '<div class="fancybox-title-wrap__counter">';
+
+            str += '<a href="javascript:parent.$.fancybox.prev();" class="fancybox-title-wrap__prev"></a>';
+            str += '<div>' + (obj.index + 1) + '&nbsp;/&nbsp;' + obj.group.length + '</div>';
+            str += '<a href="javascript:parent.$.fancybox.next();" class="fancybox-title-wrap__next"></a>';
+            
+
+            str += '</div></div>'
+
+            return str;
+        }
+
+        $('.js-popup-albums').on('click', function(event) {
+            event.preventDefault();
+            var $this = $(this),
+                photos = albums[$this.data('index')];
+
+            $.fancybox(photos, {
+                nextEffect: 'fade',
+                prevEffect: 'fade',
+                maxWidth: 800,
+                padding: [10, 10, 12, 10],
+                // arrows: false,
+
+                helpers : {
+                    title : {
+                        type : 'inside'
+                    }
+                },
+                beforeShow : function() {
+                    var title = getTitle(this);
+                    this.title = title;
+                }
+
+            });
+        });
+
+
+
+    </script>
+
+{% endblock %}

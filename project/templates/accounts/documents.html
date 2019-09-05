@@ -1,0 +1,28 @@
+{% extends 'base.html' %}{% load thumbnail %}
+
+{% block page_title %}Профиль пользователя{% endblock %}
+
+{% block page_class %} page_profile{% endblock %}
+
+{% block content %}
+    <div class="profile _flex">
+        
+        <div class="msgs">
+            <div class="msgs__wrap">
+                <div class="msgs__blockTitle">Документы</div>
+                {% for doc in object.user_files.all %}
+                <div class="landText__file">
+                    <a href="{{ doc.file.url }}" class="landText__fileLink">{{ doc.name }}</a>
+                </div>
+                {% empty %}
+                    <p>По вашему участку пока нет документов.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+
+
+    </div>
+{% endblock %}
+
+{% block profile_active %} _active{% endblock %}

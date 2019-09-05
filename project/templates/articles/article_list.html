@@ -1,0 +1,37 @@
+{% extends 'base.html' %}{% load thumbnail %}
+
+{% block page_title %}{{ data_type_name }} - {{ sitesettings.name }}{% endblock %}
+
+{% block page_class %} page_table{% endblock %}
+
+{% block content %}
+    <div class="tableBg">
+        <div class="tableBg__cntn">
+            <div class="articles">
+            {% if data_type == 'articles' %}
+                <div class="articles__headArticles">
+                    <h1 class="articles__headArticlesTitle">Статьи</h1>
+                </div>
+            {% else %}
+                <div class="articles__headNews">
+                    <h1 class="articles__headNewsTitle">Новости</h1>
+                </div>
+            {% endif %}
+                <div class="articlesList js-scroll">
+                    <div class="articlesList__wrap">
+                    {% for object in object_list %}
+                        <div class="articlesList__item">
+                        {% if object.image %}
+                            <a href="{{ object.get_absolute_url }}" class="articlesList__img" style="background-image: url('{% thumbnail object.image 200x140 crop %}')"></a>
+                        {% endif %}
+                            <a href="{{ object.get_absolute_url }}" class="articlesList__title">{{ object }}</a>
+                            <div class="articlesList__date">{{ object.created_at|date:"d.m.Y" }}</div>
+                            <div class="articlesList__text">{{ object.preview|safe }}</div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

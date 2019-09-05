@@ -1,0 +1,165 @@
+# This file is distributed under the same license as the lemon-metadata package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lemon-metadata\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-28 11:36+0400\n"
+"PO-Revision-Date: 2011-03-31 18:55+0400\n"
+"Last-Translator: Mike Yumatov <mike@yumatov.org>\n"
+"Language-Team: Russian <lemon@trilandev.com>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2\n"
+
+#: __init__.py:8
+msgid "Page Metadata"
+msgstr "Метаданные страниц"
+
+#: models.py:14
+msgid "never"
+msgstr "никогда"
+
+#: models.py:15
+msgid "always"
+msgstr "всегда"
+
+#: models.py:16
+msgid "hourly"
+msgstr "ежечасно"
+
+#: models.py:17
+msgid "daily"
+msgstr "ежедневно"
+
+#: models.py:18
+msgid "weekly"
+msgstr "еженедельно"
+
+#: models.py:19
+msgid "monthly"
+msgstr "ежемесячно"
+
+#: models.py:20
+msgid "yearly"
+msgstr "ежегодно"
+
+#: models.py:27
+msgid "URL path"
+msgstr "URL-путь"
+
+#: models.py:36
+msgid "sites"
+msgstr "сайты"
+
+#: models.py:39
+msgid "language"
+msgstr "язык"
+
+#: models.py:47
+msgid "page title"
+msgstr "заголовок страницы"
+
+#: models.py:50
+msgid "Displayed in browser window title."
+msgstr "Отображается в заголовке окна браузера."
+
+#: models.py:53
+msgid "extend page title with site name"
+msgstr "расширить заголовок страницы названием сайта"
+
+#: models.py:55
+msgid "For example, <strong>Page title - Site name</strong>"
+msgstr "Например, <strong>Заголовок страницы - Название сайта</strong>"
+
+#: models.py:58
+msgid "page keywords"
+msgstr "ключевые слова"
+
+#: models.py:61
+msgid ""
+"Keywords are terms describing web page content and used by search engines. "
+"Here you can enumerate some words divided by commas."
+msgstr ""
+"Ключевые слова - это термины, описывающие содержимое Web-страницы. Ключевые "
+"слова используются поисковыми машинами. Здесь можно написать несколько слов "
+"или словосочетаний, разделенных запятыми."
+
+#: models.py:67
+msgid "page description"
+msgstr "описание страницы"
+
+#: models.py:70
+msgid "Here you can set short description of this page for search engines."
+msgstr "Здесь можно задать краткое описание страницы для поисковых машин."
+
+#: models.py:76
+msgid "page priority"
+msgstr "приоритет страницы"
+
+#: models.py:81
+msgid ""
+"The priority of this URL relative to other URLs on your site. Valid values "
+"range from 0.0 to 1.0. This value does not affect how your pages are "
+"compared to pages on other sites - it only lets the search engines know "
+"which pages you deem most important for the crawlers.<br /> More info you "
+"can read in <a href=\"http://www.sitemaps.org/protocol.php\" target=\"_blank"
+"\">Sitemap protocol description</a>."
+msgstr ""
+"Приоритетность URL относительно других URL на Вашем сайте. Допустимый "
+"диапазон значений — от 0,0 до 1,0. Это значение не влияет на процедуру "
+"сравнения Ваших страниц со страницами на других сайтах — оно только "
+"позволяет указать поисковым системам, какие страницы, по Вашему мнению, "
+"более важны для сканеров.<br /> Дополнительную информацию можно прочитать в "
+"<a href=\"http://www.sitemaps.org/ru/protocol.php\" target=\"_blank"
+"\">описании протокола Sitemap</a>."
+
+#: models.py:91
+msgid "page change frequency"
+msgstr "частота изменения страницы"
+
+#: models.py:96
+msgid ""
+"How frequently the page is likely to change. This value provides general "
+"information to search engines and may not correlate exactly to how often "
+"they crawl the page.<br /> The value <strong>always</strong> should be used "
+"to describe documents that change each time they are accessed. The value "
+"<strong>never</strong> should be used to describe archived URLs.<br /> More "
+"info you can read in <a href=\"http://www.sitemaps.org/protocol.php\" target="
+"\"_blank\">Sitemap protocol description</a>."
+msgstr ""
+"Вероятная частота изменения этой страницы. Это значение предоставляет общую "
+"информацию для поисковых систем и может не соответствовать точно частоте "
+"сканирования этой страницы.<br /> Значение <strong>всегда</strong> должно "
+"использоваться для описания документов, которые изменяются при каждом "
+"доступе к этим документам. Значение <strong>никогда</strong> должно "
+"использоваться для описания архивных URL-адресов.<br /> Дополнительную "
+"информацию можно прочитать в <a href=\"http://www.sitemaps.org/ru/protocol."
+"php\" target=\"_blank\">описании протокола Sitemap</a>."
+
+#: models.py:108
+msgid "last modification date"
+msgstr "дата последнего изменения"
+
+#: models.py:115
+msgid "enabled"
+msgstr "включено"
+
+#: models.py:117
+msgid "If not set, meta tags will not be used on page."
+msgstr "Если выключено, мета-теги не будут использованы на странице."
+
+#: models.py:127
+msgid "page"
+msgstr "страница"
+
+#: models.py:128
+msgid "pages"
+msgstr "страницы"
+
+#: templates/metadata/admin/change_form.html:8
+msgid "Edit metadata"
+msgstr "Изменить метаданные"

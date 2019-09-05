@@ -1,0 +1,54 @@
+html
+    position relative
+    height 100%
+    -webkit-tap-highlight-color rgba(0, 0, 0, 0)
+
+body
+    position relative
+    font 400 $baseFontSize/$baseLineHeight $baseFont
+    color $cText
+    min-height 100%
+    position relative
+    -webkit-text-size-adjust 100% // ios font-size fix
+    display flex
+    flex-direction column
+    
+
+.page
+    position relative
+    overflow hidden
+    display flex
+    flex-direction column
+    flex 1 1 auto
+    min-height 100%
+    width 100%
+    flex-direction column
+
+    @media $sm
+        min-width 1280px 
+    
+
+.constrain
+    margin 0 auto
+    padding 0 40px  
+    max-width 1600px 
+    
+    @media $md
+        max-width 1260px 
+        
+
+.tokarevo
+    width 130px
+    text-align center
+    text-decoration none !important
+    color #FFF !important
+    
+    &__icon
+        margin 0 auto 8px 
+        size(77px, 38px)
+        background inline('tokarevo.png') no-repeat center center 
+        background-size contain
+    
+    &__title
+        font-weight 700
+        color #fff  

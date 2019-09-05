@@ -1,0 +1,19 @@
+{% if page_obj.has_other_pages %}
+<div class="pages">
+{% if page_obj.has_previous %}
+    <div class="pages__item">
+        <a href="?page={{ page_obj.previous_page_number }}" class="pages__prev"></a>
+    </div>
+{% endif %}
+{% for p in paginator.page_range %}
+    <div class="pages__item{% if p == page_obj.number %} _active{% endif %}">
+        <a href="?page={{ p }}" class="pages__link">{{ p }}</a>
+    </div>
+{% endfor %}
+{% if page_obj.has_next %}
+    <div class="pages__item">
+        <a href="?page={{ page_obj.next_page_number }}" class="pages__next"></a>
+    </div>
+{% endif %}
+</div>
+{% endif %}

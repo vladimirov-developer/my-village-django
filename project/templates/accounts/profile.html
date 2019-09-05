@@ -1,0 +1,25 @@
+{% extends 'base.html' %}{% load thumbnail %}
+
+{% block page_title %}Профиль пользователя{% endblock %}
+
+{% block page_class %} page_profile{% endblock %}
+
+{% block content %}
+    <div class="profile">
+        <div class="profile__wrap">
+            <div class="constrain">
+                <div class="profile__container">
+                    <a href="{% url 'articles_article_list' 'news' %}" class="profile__news js-tooltip" title="Новости"></a>
+                    <a href="/accounts/messages/" class="profile__mail js-tooltip" title="Новости"></a>
+                    <a href="#?" class="profile__feedback js-open-popup js-tooltip" title="Обратная связь" data-popup="#popup-contacts"></a>
+                    <a href="/forum/index.php" class="profile__forum js-tooltip" title="Форум"></a>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+{% endblock %}
+
+{% block profile_active %} _active{% endblock %}

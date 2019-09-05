@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Токарево. Главная страница{% endblock %}
+
+{% block page_class %} page_index{% endblock %}
+
+{% block content %}
+    <div class="index">
+        <div class="indexText">
+            <div class="indexText__container">
+                <div class="constrain">
+                    <div class="indexText__wrap">
+                        <h1 class="indexText__title">{{ sitesettings.main_title|safe }}</h1>
+                        <div class="indexText__content">
+                            <p>
+                                {{ sitesettings.main_preview|safe }}&nbsp;<a href="javascript:;" class="indexText__next" id="js-popupIndexText"><span class="indexText__nextTitle">далее</span></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="index__wrap">
+            <div class="constrain">
+                <div class="index__container">
+                    <a href="{% url 'articles_article_list' 'news' %}" class="index__news"></a>
+                    <a href="javascript:;" class="index__mailLink js-open-popup js-tooltip" title="Обратная связь" data-popup="#popup-contacts"></a>
+                    <a href="{% url 'articles_article_list' 'news' %}" class="index__newsLink js-tooltip" title="Новости"></a>
+                    <a href="{% url 'village_page' %}" class="index__aboutLink js-tooltip" title="О поселке"></a>
+                    <a href="{% url 'contacts_page' %}" class="index__contactsLink js-tooltip" title="Контакты"></a>
+                    <!-- <a href="#?" class="index__forumLink"></a> -->
+
+                    <a href="{% url 'plan_general' %}" class="index__genPlan js-tooltip" title="Генплан"></a>
+                    <a href="#?" class="index__forumLink"></a>
+
+                    <div class="index__bird personageBird js-gif " data-delay="10000">
+                        <a href="javascript:;" class="personageBird__link js-open-omen"></a>
+                        <div class="personageBird__base" style="background-image: url('/static/img/gif/bird-base.png')"></div>
+                        <div class="personageBird__gif js-gif-item" style="background-image: url('/static/img/gif/bird-1.png')" data-width="120" data-quantity="2" data-speed="400" data-cycle="5"></div>
+                        <div class="personageBird__text">
+                            <div class="personageBird__textWrap">
+                                <a href="jacascript:;" class="personageBird__textClose"></a>
+                                <div class="personageBird__textList">
+                                {% for bird_text in sitesettings.bird_texts.all %}
+                                    <div class="personageBird__textItem">
+                                        {{ bird_text.text }}
+                                    </div>
+                                {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="index__men personageMan js-gif js-gif-click">
+                        <div class="personageMan__base" style="background-image: url('/static/img/gif/men-base.png')"></div>
+                        <div class="personageMan__gif _1 js-gif-item" style="background-image: url('/static/img/gif/men-1.png')" data-width="250" data-quantity="6" data-speed="300" data-cycle="8">
+                            <div class="personageMan__text">
+                                <div class="personageMan__textWrap">
+                                    {{ sitesettings.men_text }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="personageMan__gif _2 js-gif-item" style="background-image: url('/static/img/gif/men-2.png')" data-width="400" data-quantity="2" data-speed="1000" data-cycle="3"></div>
+                        <div class="personageMan__gif _3 js-gif-item" style="background-image: url('/static/img/gif/men-3.png')" data-width="325" data-quantity="2" data-speed="800" data-cycle="3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+{% block extra_footer %}
+    <div class="popupText" id="popupIndexText">
+        <a href="javascript:;" class="popupText__close"></a>
+
+        <div class="popupText__wrap">
+            {{ sitesettings.main_text|safe }}
+        </div>
+        
+    </div>
+{% endblock %}
